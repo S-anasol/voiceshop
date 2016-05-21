@@ -15,7 +15,7 @@ function VoiceApi() {
 VoiceApi.prototype = {
     URL: 'http://www.voicebots.ru',
     //URL: 'http://107.178.215.251',
-    pollingInterval: 5000,
+    pollingInterval: 2000,
     stepsCallback: {},
     token: null,
     settings: {},
@@ -173,7 +173,7 @@ var polling = function() {
         success: function(response) {
             console.log(response);
             if(typeof response.step != 'undefined') {
-                if(CURRENT_STEP != response.step) {
+                if(CURRENT_STEP != response.step && response.step > CURRENT_STEP) {
                     CURRENT_STEP = response.step;
                     console.log('set new step');
                     console.log('step-' + response.step);
@@ -229,9 +229,10 @@ $(document).ready(function() {
     function hiddenRelatedProducts(response) {
         $('#voice-step-2').addClass('hidden');
         $('#voice-step-5').removeClass('hidden');
+        setTimeout(visibleMap, 5000);
     }
 
-    function visibleMap(response) {
+    function visibleMap() {
         $('#voice-step-6').removeClass('hidden');
         $('#voice-step-5').addClass('hidden');
 
