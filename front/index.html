@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Voicebot</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/preview.css" rel="stylesheet">
+	
+	<style>
+		body {
+			background-color: black;
+			background: url(img/bckgnd.jpg) no-repeat center center fixed; 
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		
+		
+	</style>
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div id="navbar" class="navbar navbar-default navbar-fixed-top" style="background-color: rgba(255,255,255,0.8);">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="navbar-header col-md-offset-1 col-md-6 col-xs-12 col-sm-12" style="min-height:75px;">
+							<div class="container-fluid " style= "padding: 0px 0px 50px 10px">
+								<div class="row">
+									<a class="navbar-brand col-md-12 col-xs-12 col-md-12">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-md-2 col-xs-2 col-sm-2" style="padding: 0 0 35px 0">
+													<img src="img/logo1.png" class="img-responsive" style="max-width:70px; "/>
+												</div>
+												<div class="col-md-10 col-xs-10 col-sm-10 text-left">
+													<h2>
+														<font color="#FF8C00" style= "padding: 0px 0px 50px 0px">Первый</font>
+														<font color="#808080" style= "padding: 0px 0px 50px 0px">Представляет</font>
+													</h2>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	<div class="container-fluid" style="padding-top:130px; background-color: rgba(255,255,255,0.3)">
+		<div class="row">
+			<div class="col-md-6 main-block">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12 text-center" style="background-color: rgba(255,255,255,0.4);">
+							<a href="ginza">
+								<h2>Ресторанный гид</h2>
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center proj_logo"style="padding-top:30px; background-color: rgba(255,255,255,0.4);">
+							<a href="ginza">
+								<img src="img/ginza-logo.png">
+							</a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+
+			<div class="col-md-6 main-block">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12 text-center" style="background-color: rgba(255,255,255,0.4);">
+							<a href="http://10.0.0.100">
+								<h2>Re:face</h2>
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center proj_logo" style="padding-top:30px; background-color: rgba(255,255,255,0.4);">
+							<a href="http://10.0.0.100">
+								<img src="img/platinental-logo.png">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script scr="ytbg.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".main-block").height($(window).height() - 170);
+		$(".proj_logo").height($(window).height() - 285);
+		$(window).resize(function(){
+				$(".main-block").height($(window).height() - 170);
+				$(".proj_logo").height($(window).height() - 285);
+			});
+		ytbg("tSrH-6YUf1g", 10, 55, 0);
+	});
+</script>
+</body>
+</html>
