@@ -13,6 +13,8 @@
 	<link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
+	<!--<script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>-->
+	<script src="http://maps.api.2gis.ru/2.0/loader.js"></script>
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
@@ -414,6 +416,45 @@
 		<section class="voice-wrapper row">
 			<div class="col-sm-12">
 				<h1>Идет процесс выбора способа доставки ...</h1>
+			</div>
+		</section>
+	</div>
+
+	<script type="text/javascript">
+
+		DG.then(function() {
+			var map;
+
+			map = DG.map('map', {
+				center: [54.98, 82.89],
+				zoom: 13
+			});
+
+			map.locate({setView: true, watch: true})
+					.on('locationfound', function(e) {
+						DG.marker([e.latitude, e.longitude]).addTo(map);
+					})
+					.on('locationerror', function(e) {
+						console.log(e);
+						alert("Location access denied.");
+					});
+		});
+	</script>
+
+	<div class="container hidden" id="voice-step-6">
+		<section class="voice-wrapper row">
+			<div class="col-sm-12">
+				<h2>Выбирите место доставки</h2>
+				<div id="map" style="width:1140px; height:400px"></div>
+				<button class="btn btn-primary" id="send-step-6">Продолжить</button>
+			</div>
+		</section>
+	</div>
+
+	<div class="container hidden" id="voice-step-7">
+		<section class="voice-wrapper row">
+			<div class="col-sm-12">
+				<h2>Спасибо за заказ. Ждем вас в нашем интернет-магазине!</h2>
 			</div>
 		</section>
 	</div>

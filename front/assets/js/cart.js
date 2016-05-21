@@ -15,7 +15,7 @@ function VoiceApi() {
 VoiceApi.prototype = {
     URL: 'http://www.voicebots.ru',
     //URL: 'http://107.178.215.251',
-    pollingInterval: 1000,
+    pollingInterval: 5000,
     stepsCallback: {},
     token: null,
     settings: {},
@@ -202,12 +202,12 @@ $(document).ready(function() {
             steps_callback: {
                 'step-2': visibleRelatedProducts,
                 'step-5': hiddenRelatedProducts,
+                'step-6': visibleMap,
             }
         });
     });
 
     function visibleRelatedProducts(response) {
-        console.log(123);
         $('#voice-step-2').removeClass('hidden');
 
         $('#step-2-send').click(function(e) {
@@ -216,19 +216,35 @@ $(document).ready(function() {
 
             $(this).addClass('load');
 
-            APIV.send({
-                step: 2,
-                result: true,
-                success: function(response) {
-                    $(_this).removeClass('load');
-                }
-            });
+            //APIV.send({
+            //    step: 2,
+            //    result: true,
+            //    success: function(response) {
+            //        $(_this).removeClass('load');
+            //    }
+            //});
         });
     }
 
     function hiddenRelatedProducts(response) {
         $('#voice-step-2').addClass('hidden');
         $('#voice-step-5').removeClass('hidden');
+    }
 
+    function visibleMap(response) {
+        $('#voice-step-6').removeClass('hidden');
+        $('#voice-step-5').addClass('hidden');
+
+        ('#send-step-6').click(function(e) {
+            e.preventDefault();
+            APIV.send({
+                step: 6,
+                result: true,
+                success: function(response) {
+                    $('#voice-step-6').addClass('hidden');
+                    $('#voice-step-7').removeClass('hidden');
+                }
+            })
+        });
     }
 });
